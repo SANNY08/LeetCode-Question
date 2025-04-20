@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0) return false;
+        if (x == 0) return true;
+        int local = x,rev=0;
+        while(local != 0){
+            if (rev > INT_MAX/10 || rev < INT_MIN/10){
+                return false;
+            }
+            rev = rev*10 + local %10;
+            local /= 10;
+        }
+        return rev == x;
+    }           
+};
